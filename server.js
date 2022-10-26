@@ -11,10 +11,22 @@ app.use((req , res, next)=>{
     next()
 })
 
+//view engine
+app.engine('jsx', require('jsx-view-engine').createEngine())
+app.set('view engine', 'jsx')
+
+//database connection
+db.once('open', () => {
+    console.log('Connected to Mongoose db')
+})
+
+//middleware
+
 app.use(methodOverride('_method'))
 app.use(express.static('public'))
 app.use('/adventures', require('./controllers/routeController'))
 
+//port
 app.listen(3000, () => {
     console.log("Listening on port 3000")
 })
