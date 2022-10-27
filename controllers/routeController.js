@@ -6,6 +6,7 @@ const viewController = require('./viewController')
 
 //Index
 //New
+router.get('/new',viewController.newView)
 //Delete
 //Update
 //Create
