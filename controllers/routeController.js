@@ -1,20 +1,30 @@
 const express = require('express')
+const dataControllerAdventure = require('./dataControllerAdventure')
 const router = express.Router()
-const dataController = require('./dataController')
-const viewController = require('./viewController')
+const dataControllerBook = require('./dataControllerBook')
+const viewControllerAdventures = require('./viewControllerAdventure')
+const viewControllerBook = require('./viewControllerBook')
 
-
+/* Book Routes */
 //Index
-router.get('/', dataController.index, viewController.index)
+router.get('/', dataControllerBook.index, viewControllerBook.index)
 //New
-router.get('/new',viewController.newView)
+router.get('/new',viewControllerBook.newView)
 //Delete
-router.delete('/:id', dataController.destroy, viewController.redirectHome)
+router.delete('/:id', dataControllerBook.destroy, viewControllerBook.redirectHome)
 //Update
+router.put('/:id', dataControllerBook.update, viewControllerBook.show)
 //Create
-router.post('/', dataController.create, viewController.redirectShow)
+router.post('/', dataControllerBook.create, viewControllerBook.redirectShow)
 //Edit
+router.get('/:id/edit', dataControllerBook.show, viewControllerBook.edit )
 //Show
-router.get('/:id', dataController.show, viewController.show)
+router.get('/:id', dataControllerBook.show, viewControllerBook.show)
+
+/* Adventure Routes */
+//New
+//Create
+router.post('/:id', dataControllerAdventure.create, viewControllerAdventures.redirectShow)
+
 
 module.exports = router

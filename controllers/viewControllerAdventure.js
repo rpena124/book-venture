@@ -1,21 +1,16 @@
 const RESOURECE_PATH = "/adventures"
 
-const viewController = {
-    // index,
-    index(req, res, next){
-        res.render('adventures/Index', res.locals.data)
-    },
+const viewControllerAdventures = {
     newView(req, res, next){
-        res.render('adventures/New', res.locals.data)
+        res.render('books/New', res.locals.data)
     },
     // edit,
+    edit(req, res, next){
+        res.render('adventures/Edit', res.locals.data)
+    },
     // show,
     show(req, res, next){
         res.render('adventures/Show', res.locals.data)
-    },
-    // redirectHome,
-    redirectHome(req , res, next){
-        res.redirect(RESOURECE_PATH)
     },
     // redirectShow
     redirectShow(req, res, next){
@@ -24,4 +19,4 @@ const viewController = {
     }
 }
 
-module.exports = viewController
+module.exports = viewControllerAdventures

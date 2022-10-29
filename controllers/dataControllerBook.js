@@ -1,7 +1,7 @@
 const Book = require('../models/book')
 //const Adventure = require('../models/adventure')
 
-const dataController= {
+const dataControllerBook= {
 //Index
 index (req, res, next) {
     Book.find({},(err, foundBooks)=>{
@@ -29,6 +29,21 @@ Book.findByIdAndDelete(req.params.id , (err, deletedBook)=>{
 })
 },
 //Update
+update(req, res, next){
+
+    Book.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, updatedBook)=>{
+        console.log(req.params.id)
+        console.log(req.body)
+        if(err){
+            res.status(400).send({
+                msg:err.message
+            })
+        }else{
+            res.locals.data.book = updatedBook
+            next()
+        }
+    })
+},
 //Create
 create(req, res, next){
     Book.create(req.body , (err, createdBook)=>{
@@ -58,4 +73,4 @@ show (req, res, next){
 }
 }
 
-module.exports = dataController
+module.exports = dataControllerBook
