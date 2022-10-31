@@ -17,14 +17,14 @@ router.put('/:id', dataControllerBook.update, viewControllerBook.show)
 //Create
 router.post('/', dataControllerBook.create, viewControllerBook.redirectShow)
 //Edit
-router.get('/:id/edit', dataControllerBook.show, viewControllerBook.edit )
+router.get('/:id/edit', dataControllerBook.edit, viewControllerBook.edit )
 //Show
 router.get('/:id', dataControllerBook.show, viewControllerBook.show)
 
 /* Adventure Routes */
 //New
 //Create
-router.post('/:id', dataControllerAdventure.create, viewControllerAdventures.redirectShow)
-
+router.post('/:id/new', dataControllerAdventure.create, viewControllerAdventures.redirectShow)
+// router.get('/:id', dataControllerAdventure.show, viewControllerBook.show)
 
 module.exports = router

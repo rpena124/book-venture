@@ -1,5 +1,7 @@
+const Adventure = require('../models/adventure')
 const Book = require('../models/book')
-//const Adventure = require('../models/adventure')
+
+
 
 const dataControllerBook= {
 //Index
@@ -32,8 +34,8 @@ Book.findByIdAndDelete(req.params.id , (err, deletedBook)=>{
 update(req, res, next){
 
     Book.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, updatedBook)=>{
-        console.log(req.params.id)
-        console.log(req.body)
+        // console.log(req.params.id)
+        // console.log(req.body)
         if(err){
             res.status(400).send({
                 msg:err.message
@@ -60,12 +62,38 @@ create(req, res, next){
 //Edit/Show
 show (req, res, next){
     Book.findById(req.params.id, (err, foundBook)=>{
+        Adventure.find({bookId: req.params.id},(err, foundAdventures)=>{
+            if(err){
+                res.status(400).send({
+                    msg: err.message,
+                    output: 'Could not find a adventure with that ID'
+                })
+            }else{
+                res.locals.data.book = {book: foundBook , adventureList : foundAdventures }
+                next()
+            }
+        })
         if(err){
             res.status(400).send({
                 msg:err.message,
-                output: 'Could not find a fruit with that ID'
+                output: 'Could not find a book with that ID'
             })
-        }else{
+        }
+        // else{
+        //     res.locals.data.book = foundBook
+        //     next()
+        // }
+    })
+},
+edit (req, res, next){
+    Book.findById(req.params.id, (err, foundBook)=>{
+        if(err){
+            res.status(400).send({
+                msg:err.message,
+                output: 'Could not find a book with that ID'
+            })
+        }
+        else{
             res.locals.data.book = foundBook
             next()
         }

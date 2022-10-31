@@ -3,10 +3,15 @@ const Default = require('../layouts/Default')
 
 class Show extends React.Component {
     render(){
-        const {title, author, bookCoverArt,_id} = this.props.book
+        const {title, author, bookCoverArt,_id} = this.props.book.book
         const capName = title[0].toUpperCase() + title.substring(1)
-        const {adventures} = this.props
+        const [...adventures] = this.props.book.adventureList
+     
+        // console.log(adventures)
+        // console.log(this.props.book.adventureList)
+
         return(
+    
             <Default title={`${capName} Adventure`} book={this.props.book}>
                 <div>
                     <div>
@@ -16,20 +21,22 @@ class Show extends React.Component {
                          <h2> Author: {author}</h2>
                     </div>
                 </div>
-                <form method="POST" action={`/adventures/:${_id}`}>
+                <form method="POST" action={`/adventures/${_id}/new`}>
                     Date:<input type="text" name="date" placeholder='Jan 24 , 2022'></input><br/>
                     Name:<input type="text" name="name" placeholder='Observatory'></input><br />
                     Location:<input type="text" name="location" placeholder='...'></input><br/>
                     Activity:<input type="text" name="activity" placeholder='...'></input><br/>
+                    <input type="hidden" name="bookId" value={_id} ></input>
                     <input type="submit" value="Submit"></input>
                 </form>
-                {/* <ul>
+                <ul>
                     {
-                        adventures.map((adventure)=>{
-                            const {date, name, location, activity} = adventure
+                            adventures.map((adventure)=>{
+                                // console.log(adventure + "hello")
+                            const {date, name, location, activity, _id} = adventure
                             return(
 
-                                    <li key={adventure._id}>
+                                    <li key={_id}>
                                         Date: {date}<br />
                                         Name: {name}<br />
                                         Location: {location}<br />
@@ -41,7 +48,7 @@ class Show extends React.Component {
                             )
                         })
                     }
-                </ul> */}
+                </ul>
 
 
             </Default>
