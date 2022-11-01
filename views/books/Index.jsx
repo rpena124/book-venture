@@ -9,13 +9,13 @@ class Index extends React.Component{
                 <ul>
                     {
                         books.map((book)=>{
-                            const {title, author, bookCoverArt} = book
+                            const {title, author, _id} = book
                             return(
 
-                                    <li key={book._id}>
-                                       Title: <a href={`/adventures/${book._id}`}>{title}</a><br />
+                                    <li key={_id}>
+                                       Title: <a href={`/adventures/${_id}`}>{title}</a><br />
                                         Author: {author}<br />
-                                        <form method="POST" action={`/adventures/${book._id}?_method=DELETE`}>
+                                        <form method="POST" action={`/adventures/${_id}?_method=DELETE`}>
                                             <input type="submit" value="Delete"></input>
                                         </form>
                                     </li>

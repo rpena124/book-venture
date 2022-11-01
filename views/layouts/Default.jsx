@@ -2,7 +2,10 @@ const React = require('react')
 
 class Default extends React.Component {
     render(){
-        const{book, title} =this.props
+        const{book, title} =this.props.book
+
+        // console.log(book._id)
+
         return(
             <html>
                 <head>
@@ -13,8 +16,8 @@ class Default extends React.Component {
                     <nav>
                         <a href="/adventures">Home</a>
                         <a href="/adventures/new">Add a trip</a>
-                        {book ? <a href={`/adventures/${book._id}/edit`}>{title.name} Edit Page</a> : ''}
-                        {book ? <a href={`/adventures/${book.id}`}>{title.name} Show Page</a> : ''}
+                        {book ? <a href={`/adventures/${book._id}/edit`}>{book.name} Edit Page</a> : ''}
+                        {book ? <a href={`/adventures/${book._id}`}>{book.name} Show Page</a> : ''}
                     </nav>
                     <h1>
                         {title}

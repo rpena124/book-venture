@@ -59,6 +59,21 @@ create(req, res, next){
         }
     })
 },
+edit (req, res, next){
+    Book.findById(req.params.id, (err, foundBook)=>{
+        // console.log("The edit data route is: "+foundBook)
+        if(err){
+            res.status(400).send({
+                msg:err.message,
+                output: 'Could not find a book with that ID'
+            })
+        }
+        else{
+            res.locals.data.book = foundBook
+            next()
+        }
+    })
+},
 //Edit/Show
 show (req, res, next){
     Book.findById(req.params.id, (err, foundBook)=>{
@@ -79,24 +94,7 @@ show (req, res, next){
                 output: 'Could not find a book with that ID'
             })
         }
-        // else{
-        //     res.locals.data.book = foundBook
-        //     next()
-        // }
-    })
-},
-edit (req, res, next){
-    Book.findById(req.params.id, (err, foundBook)=>{
-        if(err){
-            res.status(400).send({
-                msg:err.message,
-                output: 'Could not find a book with that ID'
-            })
-        }
-        else{
-            res.locals.data.book = foundBook
-            next()
-        }
+
     })
 }
 }

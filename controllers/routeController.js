@@ -24,7 +24,7 @@ router.get('/:id', dataControllerBook.show, viewControllerBook.show)
 /* Adventure Routes */
 //New
 //Create
-router.post('/:id/new', dataControllerAdventure.create, viewControllerAdventures.redirectShow)
+router.post('/:id', dataControllerAdventure.create, viewControllerAdventures.redirectShow)
 // router.get('/:id', dataControllerAdventure.show, viewControllerBook.show)
 
 module.exports = router

@@ -7,7 +7,7 @@ class Show extends React.Component {
         const capName = title[0].toUpperCase() + title.substring(1)
         const [...adventures] = this.props.book.adventureList
      
-        // console.log(adventures)
+        console.log(title)
         // console.log(this.props.book.adventureList)
 
         return(
@@ -21,7 +21,7 @@ class Show extends React.Component {
                          <h2> Author: {author}</h2>
                     </div>
                 </div>
-                <form method="POST" action={`/adventures/${_id}/new`}>
+                <form method="POST" action={`/adventures/${_id}`}>
                     Date:<input type="text" name="date" placeholder='Jan 24 , 2022'></input><br/>
                     Name:<input type="text" name="name" placeholder='Observatory'></input><br />
                     Location:<input type="text" name="location" placeholder='...'></input><br/>
