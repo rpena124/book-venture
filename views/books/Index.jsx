@@ -5,7 +5,7 @@ class Index extends React.Component{
     render(){
         const {books} = this.props
         return(
-            <Default title="Book List">
+            <Default title="Book List" >
                 <ul>
                     {
                         books.map((book)=>{

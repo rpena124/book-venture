@@ -13,7 +13,7 @@ router.get('/new',viewControllerBook.newView)
 //Delete
 router.delete('/:id', dataControllerBook.destroy, viewControllerBook.redirectHome)
 //Update
-router.put('/:id', dataControllerBook.update, viewControllerBook.show)
+router.put('/:id', dataControllerBook.update, viewControllerBook.redirectShow)
 //Create
 router.post('/', dataControllerBook.create, viewControllerBook.redirectShow)
 //Edit

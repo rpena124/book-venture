@@ -11,6 +11,7 @@ const viewControllerBook = {
     // edit,
     edit(req, res, next){
         res.render('books/Edit', res.locals.data)
+        console.log(res.locals.data + "view controller data")
     },
     // show,
     show(req, res, next){

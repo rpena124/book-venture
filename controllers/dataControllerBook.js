@@ -38,10 +38,11 @@ update(req, res, next){
         // console.log(req.body)
         if(err){
             res.status(400).send({
-                msg:err.message
+                msg:err.message,
+                output: 'Could not update book with that ID'
             })
         }else{
-            res.locals.data.book = updatedBook
+            res.locals.data.book = {book : updatedBook}
             next()
         }
     })

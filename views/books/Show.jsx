@@ -7,7 +7,7 @@ class Show extends React.Component {
         const capName = title[0].toUpperCase() + title.substring(1)
         const [...adventures] = this.props.book.adventureList
      
-        console.log(title)
+        console.log(`The title key is : ${title}`)
         // console.log(this.props.book.adventureList)
 
         return(

@@ -2,7 +2,7 @@ const React = require('react')
 
 class Default extends React.Component {
     render(){
-        const{book, title} =this.props.book
+        // const{book, title} =this.props.book
 
         // console.log(book._id)
 
@@ -10,17 +10,17 @@ class Default extends React.Component {
             <html>
                 <head>
                     <link re="stylsheet" href="/css/app.css"/>
-                    <title>{title}</title>
+                    <title>{this.props.title}</title>
                 </head>
                 <body>
                     <nav>
                         <a href="/adventures">Home</a>
                         <a href="/adventures/new">Add a trip</a>
-                        {book ? <a href={`/adventures/${book._id}/edit`}>{book.name} Edit Page</a> : ''}
-                        {book ? <a href={`/adventures/${book._id}`}>{book.name} Show Page</a> : ''}
+                        {this.props.book && this.props.book.book ? <a href={`/adventures/${this.props.book.book._id}/edit`}>{this.props.title} Edit Page</a> : ''}
+                        {this.props.book && this.props.book.book ? <a href={`/adventures/${this.props.book.book._id}`}>{this.props.title} Show Page</a> : ''}
                     </nav>
                     <h1>
-                        {title}
+                        {this.props.title}
                     </h1>
                     {this.props.children}
 
