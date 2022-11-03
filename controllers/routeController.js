@@ -22,9 +22,15 @@ router.get('/:id/edit', dataControllerBook.edit, viewControllerBook.edit )
 router.get('/:id', dataControllerBook.show, viewControllerBook.show)
 
 /* Adventure Routes */
+//Index
 //New
+//Delete
+router.delete('/:id/adventure', dataControllerAdventure.destroy)
+//Update
 //Create
 router.post('/:id', dataControllerAdventure.create, viewControllerAdventures.redirectShow)
 // router.get('/:id', dataControllerAdventure.show, viewControllerBook.show)
+//Edit
+//Show
 
 module.exports = router

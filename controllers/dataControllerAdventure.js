@@ -15,6 +15,22 @@ create(req, res, next){
         }
     })
 },
+//Destroy
+destroy(req, res, next){
+Adventure.findByIdAndDelete(req.params.id, (err, deletedAdventure)=>{
+    if(err){
+        res.status(400).send({
+            msg:err.message
+        })
+    }
+    else{
+        res.locals.data.adventure = deletedAdventure
+        // req.params.id = res.locals.data.adventure.bookId
+        // next()
+        res.redirect(`/adventures/${deletedAdventure.bookId}`)
+    }
+})
+},
 //Update
 update(req, res, next){
 
@@ -30,22 +46,8 @@ update(req, res, next){
             next()
         }
     })
-},
-//Show/ Edit
-// show(req, res, next){
-//     Adventure.find({},(err, foundAdventures)=>{
-//         if(err){
-//             res.status(400).send({
-//                 msg: err.message,
-//                 output: 'Could not find a adventure with that ID'
-//             })
-//         }else{
-//             res.locals.data.adventures = foundAdventures 
-//             next()
-//         }
-//     })
-//     console.log(foundAdventures)
-// }
+}
+
 }
 
 module.exports = dataControllerAdventure
