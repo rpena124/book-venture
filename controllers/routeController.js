@@ -12,6 +12,9 @@ router.get('/', dataControllerBook.index, viewControllerBook.index)
 router.get('/new',viewControllerBook.newView)
 //Delete
 router.delete('/:id', dataControllerBook.destroy, viewControllerBook.redirectHome)
+
+//Update Adventure
+router.put('/:id/adventure', dataControllerAdventure.update)
 //Update
 router.put('/:id', dataControllerBook.update, viewControllerBook.redirectShow)
 //Create
@@ -26,11 +29,12 @@ router.get('/:id', dataControllerBook.show, viewControllerBook.show)
 //New
 //Delete
 router.delete('/:id/adventure', dataControllerAdventure.destroy)
-//Update
+
 //Create
 router.post('/:id', dataControllerAdventure.create, viewControllerAdventures.redirectShow)
 // router.get('/:id', dataControllerAdventure.show, viewControllerBook.show)
 //Edit
+router.get('/:id/:id/adventure/edit', dataControllerAdventure.edit, viewControllerAdventures.edit)
 //Show
 
 module.exports = router

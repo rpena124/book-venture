@@ -14,7 +14,7 @@ const viewControllerAdventures = {
     },
     // redirectShow
     redirectShow(req, res, next){
-        const bookId = req.params.id || res.locals.data.book._id
+        const bookId = req.params.id || res.locals.data._id
         res.redirect(`${RESOURECE_PATH}/${bookId}`)
     }
 }

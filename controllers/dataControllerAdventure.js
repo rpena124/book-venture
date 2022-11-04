@@ -42,7 +42,23 @@ update(req, res, next){
                 msg:err.message
             })
         }else{
-            res.locals.data.adventure = updatedAdventure
+            res.locals.data.adventure = {adventureList : updatedAdventure}
+
+            // next()
+            res.redirect(`/adventures/${updatedAdventure.bookId}`)
+        }
+    })
+},
+edit( req, res, next){
+    Adventure.findById(req.params.id, (err, foundAdventure)=>{
+        if(err){
+            res.status(400).send({
+                mgs:err.message,
+                output: 'Could not find the adventure with that ID'
+            })
+        }
+        else{
+            res.locals.data.adventure = foundAdventure
             next()
         }
     })

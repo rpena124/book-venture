@@ -44,6 +44,9 @@ class Show extends React.Component {
                                         <form method="POST" action={`/adventures/${adventure._id}/adventure?_method=DELETE`}>
                                             <input type="submit" value="Delete"></input>
                                         </form>
+                                        <a href={`/adventures/${this.props.book.book._id}/${adventure._id}/adventure/edit`}>
+                                            <input type="submit" value="Edit"></input>
+                                        </a>
                                     </li>
                             )
                         })
