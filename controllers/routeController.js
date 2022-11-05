@@ -5,6 +5,17 @@ const dataControllerBook = require('./dataControllerBook')
 const viewControllerAdventures = require('./viewControllerAdventure')
 const viewControllerBook = require('./viewControllerBook')
 
+// Authentication MiddleWare
+//this is equivelant to putting auth in all the routes
+router.use((req,res, next) =>{
+    if(req.session.loggedIn){
+        next()
+    }
+    else{
+        res.redirect('/user/login')
+    }
+})
+
 /* Book Routes */
 //Index
 router.get('/', dataControllerBook.index, viewControllerBook.index)

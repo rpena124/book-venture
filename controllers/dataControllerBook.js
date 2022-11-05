@@ -6,7 +6,7 @@ const Book = require('../models/book')
 const dataControllerBook= {
 //Index
 index (req, res, next) {
-    Book.find({},(err, foundBooks)=>{
+    Book.find({username: req.session.username},(err, foundBooks)=>{
         if(err){
             res.status(400).send({
                 msg: err.message
