@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css2?family=Comforter+Brush&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gentium+Book+Basic:wght@400;700&display=swap');
+
+body {
+  background:url(./hiker-reading-book-in-mountain-l236cl6e4j0774zs-l236cl6e4j0774zs.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  /* margin: 0; */
+  /* font-family:'Bebas Neue', cursive; */
+  font-family: 'Gentium Book Basic', serif;
+  display: grid;
+  place-items: center;
+}
+.defaultHeader{
+    display: block;
+    padding: 5vh;
+}
+.defaultTitle{
+    display: block;
+    width: 100%;
+
+}
+h1 {
+  /* font-family: 'Comforter Brush', cursive; */
+  font-family: 'Gentium Book Basic', serif;
+  /* background: antiquewhite; */
+  /* margin-top:7vh;
+  margin-bottom: .5em;
+  padding: .5em; */
+  text-align: center;
+  color: #2b3252;
+
+}
+nav{
+  display: flex;
+}
+nav a{
+    margin: auto;
+    font-size: 3vh;
+}
+.navBarDiv{
+    width: 100%;
+    height: fit-content;
+    background-color: #ef5455;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999; 
+    width: 100%; 
+}
+a {
+  color: #2b3252;
+  text-decoration: none;
+  /* text-shadow: 1px 1px 1px black; */
+  font-size: 1.5em;
+  font-weight: bold;
+  padding: 2vh;
+  /* background: rgba(193, 235, 187, .9); */
+}
+
+a:hover {
+  color: #d9d8c2;
+}
+#indexLi, li a{
+    font-size: large;
+    color: #fad744;
+}
+li {
+  list-style: none;
+  margin: 2vh;
+}
+form{
+    color: #fad744;
+}
+
+/* li a {
+  color: #fad744;
+} */
+
+input[type=text] {
+  padding: .3em;
+  margin: .3em;
+}
+/* adventure buttons */
+input[type=submit]{
+  /* padding: .5em;
+  color: #fad744  ;
+  background:  #ef5455;
+  font-size: .5em;
+  border-radius: 25px; */
+  padding: 1em 1em;
+  border:0.16em solid #FFFFFF;
+  margin: 0 0.3em 0.3em 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: 'Roboto',sans-serif;
+  font-weight: 400;
+  color: #FFFFFF;
+  text-align: center;
+  background-color: transparent;
+
+  /* display: block; */
+
+
+}
+div.adventureDeleteButton,div.adventureEditButton{
+
+    /* padding: 0.5em 3em;
+    border:0.16em solid #FFFFFF;
+    margin: 0 0.3em 0.3em 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: 'Roboto',sans-serif;
+    font-weight: 400;
+    color: #FFFFFF; */
+    /* text-align: center; */
+    transition: all 0.15s;
+}
+input[type=submit]:hover{
+    color: #DDDDDD ;
+    border-color: #DDDDDD ;
+}
+input[type=submit]:active{
+    color:#BBBBBB;
+    border-color:#BBBBBB;
+}
+/* @media all and (max-width:30em){
+    input[type=submit]{
+    display:block;
+    margin:0.4em auto;
+   
+} */
+div.showButtons{
+    display: block;
+    align-self: left;
+    height: 100%;
+    width: 100;
+}
+.adventureDeleteButton, .adventureEditButton{
+    height: 50%;
+    width: 50%;
+    align-items:flex-end;
+    /* margin: 5px; */
+
+}
+.adventureEditButton
+
+/*  */
+p{
+  margin: auto;
+}
+
+/* Show Page Header */
+.showPageHeader{
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+    grid-template-rows: 1fr;
+    background-color: #FAD74480;
+    border-radius: 5px;
+
+}
+#bookCover{
+    grid-column:1/ span 1;
+    grid-row: 1/ span 1;
+    place-self: center;
+}
+
+#bookCover>img{
+    width: 22vh;
+}
+#bookInfo{
+    grid-column:2/ span 1;
+    grid-row: 1/ span 1;
+}
+/* ShowPage Body */
+
+#showPageBodyDiv{
+    display: inline-grid;
+    grid-template-columns: repeat(4, 1fr) ;
+    grid-template-rows: 1fr ;
+}
+#showPageFormDiv{
+    grid-column:1/ span 1;
+    grid-row: 1/ span 1;
+}
+#showPageAdventureListDiv {
+    grid-column:2/ span 3;
+    grid-row: 1/ span 1;
+}
+/*  */
+.adventureImageDiv>img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 10px;
+}
+.adventureDiv{
+    display: inline-grid;
+    grid-template-columns: repeat(5, 1fr) ;
+    grid-template-rows: 1fr ;
+    margin: 10px;
+
+    
+    /* temp border */
+    /* border-style: solid;
+    border-color: red; */
+    /* border-width: 1px;
+    border-radius: 5px; */
+    
+}
+.adventureImageDiv{
+    grid-column:1/ span 1;
+    grid-row: 1/ span 1;
+
+    /* border-style: solid;
+    border-color: red;
+    border-width: 3px; */
+}
+.adventureFormDetailsDiv{
+    grid-column:2/ span 3;
+    grid-row: 1/ span 1;
+    background-color: #FAD74480;
+    border-radius: 5px;
+
+}

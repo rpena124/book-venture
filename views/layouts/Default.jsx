@@ -9,19 +9,26 @@ class Default extends React.Component {
         return(
             <html>
                 <head>
-                    <link re="stylsheet" href="/css/app.css"/>
+                    <link rel='stylesheet' href='/css/app.css' />
                     <title>{this.props.title}</title>
                 </head>
                 <body>
-                    <nav>
-                        <a href="/adventures">Home</a>
-                        <a href="/adventures/new">Add a trip</a>
-                        {this.props.book && this.props.book.book ? <a href={`/adventures/${this.props.book.book._id}/edit`}>{this.props.title} Edit Page</a> : ''}
-                        {this.props.book && this.props.book.book ? <a href={`/adventures/${this.props.book.book._id}`}>{this.props.title} Show Page</a> : ''}
-                    </nav>
-                    <h1>
-                        {this.props.title}
-                    </h1>
+                    <div className='defaultHeader'>
+                        <div className='navBarDiv'>
+                                <nav>
+                                    <a href="/adventures">Home</a>
+                                    <a href="/adventures/new">Add Book</a>
+                                    {this.props.book && this.props.book.book ? <a href={`/adventures/${this.props.book.book._id}/edit`}> Edit Page</a> : ''}
+                                    {this.props.book && this.props.book.book ? <a href={`/adventures/${this.props.book.book._id}`}>Show Page</a> : ''}
+                                </nav> 
+                            </div> 
+                            <div className='defaultTitle'>
+                                <h1>
+                                    {this.props.title}
+                                </h1>
+                        </div>
+                    </div>
+
                     {this.props.children}
 
                 </body>

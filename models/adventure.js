@@ -5,7 +5,8 @@ const adventureSchema = new mongoose.Schema({
     name:{type: String, required:true},
     location:{type: String},
     activity:{type:String, required: true},
-    bookId:{type:String}
+    bookId:{type:String},
+    image:{type:String}
 
 })
 
